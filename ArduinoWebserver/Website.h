@@ -24,7 +24,7 @@ public:
   }
 
   char* getSite(char* parameters){
-    if(handler){
+    if(handler&&(parameters !=0)){
        handler->handle(parameters); 
     }
     return html;

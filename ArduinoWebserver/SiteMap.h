@@ -17,21 +17,20 @@ public:
     return 1;
   }
 
-  String website(String request){
+ String website(String request){
     int index = request.indexOf('?');
-    String site = request;
-    String *parameters = 0; 
+    char *site = request.c_str();
+    char *parameters = 0; 
     if(index>0){
-      site = request.substring(0,index);
-      *parameters = request.substring(index, request.length());
+      site = request.substring(0,index).c_str();
+      *parameters = request.substring(index, request.length()).c_str();
     }
-    Website data = *sMap.getValue(site.c_str());
-    String returnstrn(data.getSite(parameters->c_str()));
-    Serial.println(returnstrn);
-    if(returnstrn != 0){
-      return returnstrn;
+    Website *data = sMap.getValue(site);
+    if(data){
+      return String(data->getSite(parameters));
+    }else{
+      return notFound;
     }
-    return notFound;
    }
  };
 #endif
