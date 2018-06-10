@@ -8,11 +8,12 @@ Currently the solution uses AT commands to communicate with an ESP2866. This is 
 
 # How To
 To create a Website the struct defined in Website.h can be instansiated. This takes the html code in the constructor. To allow the site to handle parameters and interact with other code, the class InputHandler defined in InputHandler.h can be extended. This class has one method (handle) that handles the parameters.
- ´´´c++
+ ```c++
   Website testSite (html code in char*);
     TestInputHandler *handler = new TestInputHandler();
     testSite.addInputHandler(handler);
-
+   ```
+    
 # TODO
 - [ ] Sepperate the server and the connection to the netwrok device to open up the server running on different modules
 - [ ] Document the structure of the program
