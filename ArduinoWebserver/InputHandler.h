@@ -6,5 +6,5 @@ class InputHandler{
   virtual void handle(char* Parameters);
 };
 
-#endif WEBSITEINPUTHANDLER_H
+#endif
 

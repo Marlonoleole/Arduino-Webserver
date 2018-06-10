@@ -3,7 +3,7 @@
 
 #include "Website.h"
 
-Website testSite ("<!doctype html>\
+char* test = "<!doctype html>\
 <html>\
 <head>\
 <title>PlaceHolder</title>\
@@ -11,9 +11,10 @@ Website testSite ("<!doctype html>\
 <body>\
 <H1>This is a placeholder site for now, </H1>\
 </body>\
-</html>");
+</html>";
 
-String notFound = "<!doctype html>\
+
+char* notFound = "<!doctype html>\
 <html>\
 <head>\
 <title>404: Page not found </title>\

@@ -3,6 +3,7 @@
 
 #include "InputHandler.h"
 
+
 struct Website{
  private:
  char* html;
@@ -24,9 +25,9 @@ public:
   }
 
   char* getSite(char* parameters){
-    if(handler&&(parameters !=0)){
-       handler->handle(parameters); 
-    }
+    if(handler>0 && parameters>0){
+        handler->handle(parameters);
+    } 
     return html;
   }
 };

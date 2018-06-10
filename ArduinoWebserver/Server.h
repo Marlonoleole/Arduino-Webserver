@@ -33,12 +33,18 @@ void handleConnections(){
 
       start = request.indexOf(":GET ");
       GET = request.substring(start+5, request.length()-1);
-     
-      Serial.println("client: " + id + " requests: " + GET);
-      //Send the correct Data Back!
-      String req = siteMapping.website(GET);
+
+      String req;
+      if(GET.indexOf("?")>=0){
+        Serial.println("Parameters found");
+        String param = GET.substring(GET.indexOf("?"), GET.length());
+        String newGET = GET.substring(0, GET.indexOf("?"));
+        req = siteMapping.website(newGET.c_str(), param.c_str());
+      }else{
+        req = siteMapping.website(GET.c_str(), 0);
+      }
+      //Send the correct Data Back
       conn.sendData(id, req);
-      
       conn.closeClientConnection(id);
       Serial.println("closing connection");
   }
