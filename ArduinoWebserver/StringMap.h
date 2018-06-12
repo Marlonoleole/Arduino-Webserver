@@ -26,7 +26,7 @@ private:
   double loadBearing;
   MapEntry<V>* items;
 
-   int indexint(char* key) {
+   int indexint(const char* key) {
     int sum = 0;
     char *p = key;
     while(*p){
@@ -63,7 +63,7 @@ public:
     }
   }
 
-  int contains(char* key){
+  int contains(const char* key){
     int index = indexint(key);
     MapEntry<V> item = items[index];
     char* newKey = key;
@@ -78,7 +78,7 @@ public:
     return 0;
   }
 
-  int putValue(char* key, V value) {
+  int putValue(const char* key, V value) {
     int isthere = contains(key);
     if (isthere){
       return 0;
@@ -93,7 +93,7 @@ public:
     }
   }
 
-  V* getValue(char* key){
+  V* getValue(const char* key){
     int index = indexint(key);
     MapEntry<V> item = items[index];
     char* newKey = key;

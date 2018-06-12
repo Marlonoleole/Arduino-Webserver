@@ -1,5 +1,8 @@
 #ifndef CONNECTION_H
 #define CONNECTION_H
+
+#include "ClientConnection.h"
+
 #define ESP8266 Serial1
 #define BUFFER_SIZE  128
 
@@ -97,9 +100,49 @@ char buffer[BUFFER_SIZE];
     sendCommand(cmdCIPCLOSE, 1000);
   }
 
-  String readData(){
-    return ESP8266.readString();
+  ClientConnection* readData(){
+    if(ESP8266.available()){
+      String data =  ESP8266.readString();
+      if(data.indexOf("+IPD,")>0){
+        Serial.println("Received Data");
+        Serial.println(data);
+
+        //analysing the data
+        String request = data.substring(data.indexOf("+IPD"), data.indexOf("HTTP"));
+        Serial.println(request);
+        //Splitting around the comma
+        String id;
+        String GET;
+
+        int start = request.indexOf(",");
+        int i = start+1;
+        while(request.charAt(i)!=','){
+          i++;
+        }
+        id=request.substring(start+1, i);
+
+        start = request.indexOf(":GET ");
+        GET = request.substring(start+5, request.length()-1);
+        char* charID = new char[id.length()];
+        strcpy(charID, id.c_str());
+        if(GET.indexOf("?")>=0){
+          Serial.println("Parameters found");
+          String param = GET.substring(GET.indexOf("?"), GET.length());
+          String newGET = GET.substring(0, GET.indexOf("?"));
+          char* charParam = new char[param.length()+1];
+          char* charGET = new char[newGET.length()+1];
+          strcpy(charParam, param.c_str());
+          strcpy(charGET, newGET.c_str());
+          return new ClientConnection(charID, charGET, charParam);
+        }else{
+            char* charGET = new char[GET.length()+1];
+            strcpy(charGET, GET.c_str());
+            return new ClientConnection(charID, charGET, 0);
+        }
+    }
   }
+  return 0;
+ }
 };
 
 #endif

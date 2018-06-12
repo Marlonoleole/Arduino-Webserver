@@ -1,9 +1,7 @@
 #ifndef WEBSITES_H
 #define WEBSITES_H
 
-#include "Website.h"
-
-char* test = "<!doctype html>\
+char* testSite = "<!doctype html>\
 <html>\
 <head>\
 <title>PlaceHolder</title>\
@@ -25,14 +23,4 @@ char* notFound = "<!doctype html>\
 </body>\
 </html>";
 
-String invalidParam = "<!doctype html>\
-<html>\
-<head>\
-<title>Invalid Parameters </title>\
-</head>\
-<body>\
-<H1>Error with your Parameters!</H1>\
-<H2>Error with your parameters, please check them!<H2>\
-</body>\
-</html>";
 #endif
