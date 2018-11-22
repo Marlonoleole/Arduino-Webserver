@@ -23,13 +23,13 @@ char buffer[BUFFER_SIZE];
     return ESP8266.read();
   }
 
-  
+
   public:
 
   Connection(){
     ESP8266.begin(115200);
   }
-  
+
   int reset(){
     ESP8266.println("AT+RST");
     while(!ESP8266.available());
@@ -49,7 +49,7 @@ char buffer[BUFFER_SIZE];
       return 2;
     }
  }
-  
+
   int connectNet(){
     String cmd = "AT+GMR";
     ESP8266.println(cmd);
@@ -93,9 +93,9 @@ char buffer[BUFFER_SIZE];
     Serial.println(cmd);
     sendCommand(response, 1000);
   }
-  
+
   void closeClientConnection(String connectionId){
-    String cmdCIPCLOSE = "AT+CIPCLOSE="; 
+    String cmdCIPCLOSE = "AT+CIPCLOSE=";
     cmdCIPCLOSE += connectionId;
     sendCommand(cmdCIPCLOSE, 1000);
   }

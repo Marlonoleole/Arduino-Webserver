@@ -1,4 +1,4 @@
-#include "Server.h"
+#include "Server.cc"
 #include "SiteMap.h"
 #include "Websites.h"
 #include "Website.h"
@@ -10,7 +10,7 @@ void setup() {
     Serial.println("adding siteMap");
     SiteMap *mapping = new SiteMap();
     Website test (testSite);
-    InputHandler *testhandler = new TestInputHandler();
+    InputHandler testhandler {};
     test.addInputHandler(testhandler);
     mapping->add("/",test);
     Serial.println(mapping->website("/2",0));
