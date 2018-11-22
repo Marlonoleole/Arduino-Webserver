@@ -19,3 +19,4 @@ To create a Website the struct defined in Website.h can be instansiated. This ta
 - [ ] Document the structure of the program
 - [ ] write a how-to to allow people using the solution 
 - [ ] add a setup method to allow setting up the device if it is not connected to a network (such as moved)
+- [ ] Sepparate the implementations from the headers
