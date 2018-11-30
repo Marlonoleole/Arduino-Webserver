@@ -20,4 +20,4 @@ To create a Website the struct defined in Website.h can be instansiated. This ta
 - [ ] write a how-to to allow people using the solution 
 - [ ] add a setup method to allow setting up the device if it is not connected to a network (such as moved)
 - [ ] Separate the implementations from the headers
-- [ ] It should be able to remove most of the pointers, do this!!
+- [ ] Tt should be able to remove most of the pointers, do this!!
