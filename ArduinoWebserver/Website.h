@@ -7,24 +7,27 @@
 struct Website{
  private:
  char* html;
- InputHandler handler;
+ InputHandler *handler;
 
 public:
-  Website(char* data):html{data}{
-    this->html = data;
+  Website(char* data){
+    this->html = data; 
     this->handler = 0;
   }
 
-  Website()=delete;
+  Website(){
+   this->html =0;
+   this->handler =0; 
+  }
 
-  int addInputHandler(InputHandler handler){
+  int addInputHandler(InputHandler *handler){
     this->handler = handler;
   }
 
   char* getSite(char* parameters){
     if(handler>0 && parameters>0){
-        handler.handle(parameters);
-    }
+        handler->handle(parameters);
+    } 
     return html;
   }
 };

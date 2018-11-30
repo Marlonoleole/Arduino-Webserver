@@ -1,5 +1,5 @@
 #include "SiteMap.h"
-#include "Connection.cc"
+#include "Connection.h"
 #include "ClientConnection.h"
 
 Connection conn;
@@ -56,6 +56,6 @@ bool StartServer(){
            }
          }
       }
-    }
+    }  
    return false;
   }
