@@ -1,5 +1,6 @@
+# Note, The current Readme is deprecated as the project has been redesigned from the ground
 # Arduino-Webserver
-A project to allow an arduino to be used as a webserver so that iot Projects can hosts their own websites or allow connections from another device using html requests.
+A project to allow an arduino to be used as a webserver so that iot Projects can hosts their own websites or allow connections from another device using html requests. This si partly as a way to learn and to develop something fun, that can be integrated into other projects :) 
 
 # Current Status
 The project can be run on a Mega 2560 as the device supports hardware serial interupts. that is to say a if a serial event happens from the serial network device the execution of the program will be interrupted and the connection will be handled.
