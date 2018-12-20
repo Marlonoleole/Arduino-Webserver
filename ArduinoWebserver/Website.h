@@ -1,35 +1,27 @@
-#ifndef WEBSITE_H
-#define WEBSITE_H
+#ifndef Website_H
+#define Website_H
 
-#include "InputHandler.h"
+#include "String.h"
+#include "ParameterHandler.h"
 
+using string = Standard::string;
 
-struct Website{
- private:
- char* html;
- InputHandler *handler;
+namespace Webcontent
+{
+class Website
+{
+  private:
+    string html_{"NOT FOUND"};
+    ParameterHandler *handler_{};
 
-public:
-  Website(char* data){
-    this->html = data; 
-    this->handler = 0;
-  }
-
-  Website(){
-   this->html =0;
-   this->handler =0; 
-  }
-
-  int addInputHandler(InputHandler *handler){
-    this->handler = handler;
-  }
-
-  char* getSite(char* parameters){
-    if(handler>0 && parameters>0){
-        handler->handle(parameters);
-    } 
-    return html;
-  }
+  public:
+    Website(){};
+    Website(string html, ParameterHandler *handler) : html_{html}, handler_{handler} {};
+    const string generate_site(const string parameters) const
+    {
+        handler_->handle(parameters);
+        return html_;
+    };
 };
-
+} // namespace Webcontent
 #endif
