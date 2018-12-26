@@ -57,6 +57,6 @@ Documentation should be provided soon
 ### Software
 
 ## TODO
-[] Provide Documentation
-[] Look into Abstracting the connection
-[] Look into providing a master and a slave configuration for the server
+- [ ] Provide Documentation
+- [ ] Look into Abstracting the connection
+- [ ] Look into providing a master and a slave configuration for the server
