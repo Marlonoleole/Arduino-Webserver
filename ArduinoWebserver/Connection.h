@@ -3,10 +3,9 @@
 #define CONNECTION_H
 #include "ClientConnection.h"
 #include "String.h"
-using string = Standard::string;
+
 #define ESP8266 Serial1
-//TODO: See if other methods are needed, add them as needed.
-//TODO: Abstractoin here
+using string = Standard::string;
 const static string reset_command{"AT+RST"};
 const static string mode_command{"AT+CWMODE"};
 const static string multiple_connections_command{"AT+CIPMUX"};

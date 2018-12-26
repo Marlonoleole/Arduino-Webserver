@@ -19,9 +19,11 @@ class server
     boolean SetupDone{false};
 
   public:
-    void addMapping(Sitemap *mapping)
+    server() : conn{}, siteMapping{new Sitemap()}, SetupDone{false}{}
+    ~server(){delete siteMapping;}
+    void add_site(string link, Website site)
     {
-        siteMapping = mapping;
+        siteMapping->add(link, site);
     }
     void handleConnections()
     {
