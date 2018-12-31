@@ -1,4 +1,3 @@
-#include "SiteMapping.h"
 #include "String.h"
 #include "Website.h"
 #include "Server.h"
@@ -8,7 +7,6 @@
 using Server::server;
 using Webcontent::Response_Provdier;
 using Webcontent::Website;
-using webMapping::Sitemap;
 
 class Lamp_handle : public Response_Provdier
 {
@@ -31,6 +29,7 @@ Website site{"<!doctype html><html><head><title>PlaceHolder</title></head><body>
 
 void setup()
 {
+    //Server Setup
     Serial.begin(115200);
     Serial.println("adding and testing site");
     serv->add_site("/", site);
@@ -39,6 +38,8 @@ void setup()
         Serial.println("Server Started Succesfully");
     else
         Serial.println("There was a problem Starting the server");
+
+    //Procedure Setup
     pinMode(22, OUTPUT);
     digitalWrite(22, LOW);
     light_on = false;
@@ -46,12 +47,16 @@ void setup()
 
 void loop()
 {
-    if (light_on)
-        digitalWrite(22, HIGH);
-    else
-        digitalWrite(22, LOW);
+        digitalWrite(22, light_on);
 }
 
+/**
+ * This is an interupt method calling the servers handle method, beause this is an interrupt,
+ * the main program can run and only be interrupted by the server when it needs to.
+ * For long (or very many) messages, this can be a problem as it can prevent the main program from
+ * running proprely (checking on sensors or so), therefore, the main controller might be better on its own
+ * micro controller and asks this device which variables it should take.
+ **/
 void serialEvent1()
 {
     serv->handleConnections();
