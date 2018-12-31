@@ -60,3 +60,4 @@ Documentation should be provided soon
 - [ ] Provide Documentation
 - [ ] Look into Abstracting the connection
 - [ ] Look into providing a master and a slave configuration for the server
+- [ ] Use timed interrupts to allow the server to check (this will open up on devices that do not have a serial Interrupt).
