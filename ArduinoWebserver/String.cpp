@@ -19,17 +19,17 @@ int Standard::string_compare(const char *first, const char *second)
     int loop_count{0};
     while (first[loop_count] && second[loop_count])
     {
-        int sum = first[loop_count] - second[loop_count];
-        if (sum != 0)
-        {
-            return sum;
-        }
-        ++loop_count;
+	    int sum = first[loop_count] - second[loop_count];
+	    if (sum != 0)
+	    {
+		    return sum;
+	    }
+	    ++loop_count;
     }
     if ((!first[loop_count]) && second[loop_count])
-        return -1;
+		return -1;
     else if (first[loop_count] && !second[loop_count])
-        return 1;
+	 return 1;
     return 0;
 }
 int Standard::string_find_first_of(const char *chars, const int length, const char symbol)
